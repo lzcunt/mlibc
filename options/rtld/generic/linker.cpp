@@ -145,6 +145,8 @@ elf_addr handleIfunc(elf_addr addr) {
 		return reinterpret_cast<ifunc_handler>(addr)(&ifunc_arg);
 	#elif defined(__i386__) || defined(__x86_64__) || defined(__m68k__)
 		return reinterpret_cast<ifunc_handler>(addr)();
+	#else
+	#	error Unknown architecture
 	#endif
 }
 
