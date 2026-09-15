@@ -105,6 +105,8 @@ struct stat {
 	struct timespec st_ctim;
 };
 
+#else
+#error "Missing architecture specific code."
 #endif
 
 #if defined(_DEFAULT_SOURCE) || defined(_LARGEFILE64_SOURCE)

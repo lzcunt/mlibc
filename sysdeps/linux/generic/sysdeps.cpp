@@ -292,6 +292,10 @@ int Sysdeps<Clone>::operator()(void *tcb, pid_t *pid_out, void *stack) {
 	user_desc->useable = 1;
 
 	tcb = reinterpret_cast<void *>(user_desc);
+#elif defined(__x86_64__)
+	// TP points at the TCB itself, nothing to adjust.
+#else
+#error "Missing architecture specific code."
 #endif
 
 	auto ret = __mlibc_spawn_thread(flags, stack, pid_out, nullptr, tcb);
