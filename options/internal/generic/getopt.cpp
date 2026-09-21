@@ -306,11 +306,13 @@ int getopt_common_internal(int argc, char * const argv[], const char *optstring,
 							optopt = arg[i];
 							return colon ? ':' : '?';
 						}
+						__optpos = 1;
 						optind++;
 					} else {
 						if(arg[i+1]) {
 							__optpos++;
 						} else if(arg[i]) {
+							__optpos = 1;
 							optind++;
 						} else {
 							optarg = nullptr;
