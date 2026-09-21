@@ -198,6 +198,7 @@ all_test_cases = [
 	'linux/pthread_attr',
 	'linux/cpuset',
 	'linux/malloc-usable-size',
+        'linux/memalign',
 	'linux/getifaddrs',
 	'linux/pidfd',
 	'linux/timerfd',
@@ -245,6 +246,7 @@ host_libc_noasan_test_cases = [
 	'posix/locale', # encounters memory leaks
 	'ansi/calloc', # does some overflowing
 	'linux/pthread_attr', # encounters memory leaks
+        'linux/memalign', # tests failure of non-power-of-two alignment
 	'posix/strcoll_l', # glibc leaks memory internally
 	'posix/wcscoll_l', # glibc leaks memory internally
 	'posix/strxfrm_l', # glibc leaks memory internally
